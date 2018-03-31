@@ -1,8 +1,11 @@
 var cnv;
 
+function setupWindow() { resizeCanvas(windowWidth / 2, windowHeight); }
+
 function setup() {
-  cnv = createCanvas(window.innerWidth, 40, P2D);
+  cnv = createCanvas(windowWidth / 2, windowHeight);
   cnv.parent("toppage_canvas");
+  setupWindow();
   noSmooth();
 }
 
@@ -12,3 +15,5 @@ function draw() {
   else
     background(60, 210, 210);
 }
+
+function windowResized() { setupWindow(); }
