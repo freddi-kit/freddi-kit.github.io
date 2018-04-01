@@ -33,7 +33,7 @@ function draw() {
     background(60, 210, 210);
 
   // タイトルの大きさ、画面に合わせる
-  title_width = min(title_image.width, width - 50)
+  title_width = min(max(width * 0.5, title_image.width), width - 50)
   title_heigth = title_image.height * (title_width / title_image.width)
 
   // タイトルがじわーっとなるやつ

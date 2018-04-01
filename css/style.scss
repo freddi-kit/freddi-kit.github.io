@@ -1,0 +1,40 @@
+body {
+  background-color: black;
+  margin: 0;
+  padding: 0;
+}
+
+
+$check-sizes:(
+  'small':'screen and (max-width:400px)',
+  'large':'screen and (min-width:400px)',
+) !default;
+
+
+// レスポンシブル用の関数
+@mixin responsible_if($check-size: small){
+  @media #{map-get($check-sizes, $check-size)}{
+    @content;
+  }
+}
+
+
+#toppage_canvas {
+  display: inline-block;
+  @include responsible_if(large){
+    float:left;
+  }
+}
+
+.menu_block {
+  display: inline-block;
+  @include responsible_if(){
+    width:100%;
+    height:100%;
+  }
+  @include responsible_if(large){
+    float:right;
+    height:100vh;
+    width:50%;
+  }
+}

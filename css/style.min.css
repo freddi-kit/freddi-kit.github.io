@@ -1,1 +1,1 @@
-body{background-color:#000;margin:0;padding:0}
+body{background-color:black;margin:0;padding:0}#toppage_canvas{display:inline-block}@media screen and (min-width: 400px){#toppage_canvas{float:left}}.menu_block{display:inline-block}@media screen and (max-width: 400px){.menu_block{width:100%;height:100%}}@media screen and (min-width: 400px){.menu_block{float:right;height:100vh;width:50%}}
