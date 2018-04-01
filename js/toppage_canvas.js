@@ -1,7 +1,38 @@
-var cnv;
-var title_image;
-var in_counter;
 
+// 描く画像とかをObjectとして管理するためのクラス
+// これ継承してほしい・・・
+class drawObject {
+  constructor() {}
+  draw() {}
+}
+
+class titleObject extends drawObject {
+  constructor() {
+    super();
+    this.title_image = loadImage("./media/title.png");
+    this.in_counter = 1;
+  }
+  draw() {
+
+    super.draw();
+    // タイトルの大きさ、画面に合わせる
+    let title_width = min(max(width * 0.5, this.title_image.width), width - 50)
+    let title_heigth =
+        this.title_image.height * (title_width / this.title_image.width)
+
+    // タイトルがじわーっとなるやつ
+    if (this.in_counter < 255) this.in_counter += 5;
+    tint(255, min(255, this.in_counter));
+    image(this.title_image, width / 2, height / 2, title_width,
+          this.title_heigth)
+    tint(255, 255); // ココでtintをもとに戻さないと他に影響が出る
+  }
+}
+
+var cnv;   //キャンバスデータ
+var title; //タイトルのオブジェクト管理
+
+// リサイズとかがおこった時の関数
 function setupWindow() {
   var winSetWidth, winSetHeight;
   winSetWidth = (windowWidth / 2 > 200) ? windowWidth / 2 : windowWidth;
@@ -12,10 +43,7 @@ function setupWindow() {
   resizeCanvas(winSetWidth, winSetHeight);
 }
 
-function preload() {
-  title_image = loadImage("./media/title.png");
-  in_counter = 1;
-}
+function preload() { title = new titleObject(); }
 
 function setup() {
   cnv = createCanvas(windowWidth / 2, windowHeight);
@@ -32,15 +60,7 @@ function draw() {
   else
     background(60, 210, 210);
 
-  // タイトルの大きさ、画面に合わせる
-  title_width = min(max(width * 0.5, title_image.width), width - 50)
-  title_heigth = title_image.height * (title_width / title_image.width)
-
-  // タイトルがじわーっとなるやつ
-  if (in_counter < 255) in_counter += 5;
-  tint(255, min(255, in_counter));
-  image(title_image, width / 2, height / 2, title_width, title_heigth)
-  tint(255, 255); // ココでtintをもとに戻さないと他に影響が出る
+  title.draw();
 }
 
 function windowResized() { setupWindow(); }
