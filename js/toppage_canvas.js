@@ -26,13 +26,15 @@ class titleObject extends drawObject {
     this.sin_counter += 10;
     if (this.sin_counter > 60)
       this.sin_counter = 0;
-    tint(255, 0, 0, min(255 / 2, this.in_counter));
-    image(this.title_image, width / 2 + 5 * Math.sin(this.sin_counter + 1),
-          height / 2, title_width, title_heigth);
-    tint(0, 255, 0, min(255 / 2, this.in_counter));
-    image(this.title_image, width / 2 - 5 * Math.sin(this.sin_counter),
-          height / 2, title_width, title_heigth);
-    tint(255, min(255, this.in_counter));
+    if (hour() >= 20 || hour() <= 4) {
+      tint(255, 0, 0, min(255 / 2, this.in_counter));
+      image(this.title_image, width / 2 + 5 * Math.sin(this.sin_counter + 1),
+            height / 2, title_width, title_heigth);
+      tint(0, 255, 0, min(255 / 2, this.in_counter));
+      image(this.title_image, width / 2 - 5 * Math.sin(this.sin_counter / 2),
+            height / 2, title_width, title_heigth);
+    }
+    tint(255, min(255 / 1.5, this.in_counter));
     image(this.title_image, width / 2, height / 2, title_width, title_heigth);
 
     tint(255, 255); // ココでtintをもとに戻さないと他に影響が出る
@@ -73,10 +75,7 @@ function setupWindow() {
   resizeCanvas(winSetWidth, winSetHeight);
 }
 
-function preload() {
-  title = new titleObject();
-  // noises = new noiseObject();
-}
+function preload() { title = new titleObject(); }
 
 function setup() {
   cnv = createCanvas(windowWidth / 2, windowHeight);
