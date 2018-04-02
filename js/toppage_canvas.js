@@ -11,6 +11,7 @@ class titleObject extends drawObject {
     super();
     this.title_image = loadImage("./media/title.png");
     this.in_counter = 1;
+    this.sin_counter = 1;
   }
   draw() {
 
@@ -22,8 +23,18 @@ class titleObject extends drawObject {
 
     // タイトルがじわーっとなるやつ
     if (this.in_counter < 255) this.in_counter += 5;
+    this.sin_counter += 10;
+    if (this.sin_counter > 60)
+      this.sin_counter = 0;
+    tint(255, 0, 0, min(255 / 2, this.in_counter));
+    image(this.title_image, width / 2 + 5 * Math.sin(this.sin_counter + 1),
+          height / 2, title_width, title_heigth);
+    tint(0, 255, 0, min(255 / 2, this.in_counter));
+    image(this.title_image, width / 2 - 5 * Math.sin(this.sin_counter),
+          height / 2, title_width, title_heigth);
     tint(255, min(255, this.in_counter));
-    image(this.title_image, width / 2, height / 2, title_width, title_heigth)
+    image(this.title_image, width / 2, height / 2, title_width, title_heigth);
+
     tint(255, 255); // ココでtintをもとに戻さないと他に影響が出る
   }
 }
