@@ -52,7 +52,8 @@ class noiseObject extends drawObject {
     fill(57, 57, 57);
     noStroke();
     for (var i = 0; i < this.positions.length; i++) {
-      rect(this.positions[i][0], this.positions[i][1], 10, 10);
+      rect(this.positions[i][0], this.positions[i][1], height * 0.01,
+           height * 0.01);
     }
   }
 }
