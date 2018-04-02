@@ -23,14 +23,32 @@ class titleObject extends drawObject {
     // タイトルがじわーっとなるやつ
     if (this.in_counter < 255) this.in_counter += 5;
     tint(255, min(255, this.in_counter));
-    image(this.title_image, width / 2, height / 2, title_width,
-          this.title_heigth)
+    image(this.title_image, width / 2, height / 2, title_width, title_heigth)
     tint(255, 255); // ココでtintをもとに戻さないと他に影響が出る
   }
 }
+class noiseObject extends drawObject {
+  constructor() {
+    super();
+    this.noise_num = 10000;
+    this.positions = [];
+    for (var i = 0; i < this.noise_num; i++) {
+      this.positions.push([ int(random(width)), int(random(height)) ]);
+    }
+  }
+  draw() {
+    super.draw();
+    fill(57, 57, 57);
+    noStroke();
+    for (var i = 0; i < this.positions.length; i++) {
+      rect(this.positions[i][0], this.positions[i][1], 10, 10);
+    }
+  }
+}
 
-var cnv;   //キャンバスデータ
-var title; //タイトルのオブジェクト管理
+var cnv;    //キャンバスデータ
+var title;  //タイトルのオブジェクト管理
+var noises; //ノイズ
 
 // リサイズとかがおこった時の関数
 function setupWindow() {
@@ -43,7 +61,10 @@ function setupWindow() {
   resizeCanvas(winSetWidth, winSetHeight);
 }
 
-function preload() { title = new titleObject(); }
+function preload() {
+  title = new titleObject();
+  // noises = new noiseObject();
+}
 
 function setup() {
   cnv = createCanvas(windowWidth / 2, windowHeight);
@@ -54,10 +75,12 @@ function setup() {
 }
 
 function draw() {
+  noises = new noiseObject();
   // 昼夜の画面の明るさ設定
-  if (hour() >= 20 || hour() <= 4)
+  if (hour() >= 20 || hour() <= 4) {
     background(41, 41, 41);
-  else
+    noises.draw();
+  } else
     background(60, 210, 210);
 
   title.draw();
