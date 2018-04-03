@@ -26,14 +26,13 @@ class titleObject extends drawObject {
     this.sin_counter += 10;
     if (this.sin_counter > 60)
       this.sin_counter = 0;
-    if (hour() >= 20 || hour() <= 4) {
-      tint(255, 0, 0, min(255 / 2, this.in_counter));
-      image(this.title_image, width / 2 + 5 * Math.sin(this.sin_counter + 1),
-            height / 2, title_width, title_heigth);
-      tint(0, 255, 0, min(255 / 2, this.in_counter));
-      image(this.title_image, width / 2 - 5 * Math.sin(this.sin_counter / 2),
-            height / 2, title_width, title_heigth);
-    }
+    tint(255, 0, 0, min(255 / 2, this.in_counter));
+    image(this.title_image, width / 2 + 5 * Math.sin(this.sin_counter + 1),
+          height / 2, title_width, title_heigth);
+    tint(0, 255, 0, min(255 / 2, this.in_counter));
+    image(this.title_image, width / 2 - 5 * Math.sin(this.sin_counter / 2),
+          height / 2, title_width, title_heigth);
+
     tint(255, min(255 / 1.5, this.in_counter));
     image(this.title_image, width / 2, height / 2, title_width, title_heigth);
 
@@ -88,11 +87,8 @@ function setup() {
 function draw() {
   noises = new noiseObject();
   // 昼夜の画面の明るさ設定
-  if (hour() >= 20 || hour() <= 4) {
-    background(41, 41, 41);
-    noises.draw();
-  } else
-    background(60, 210, 210);
+  background(41, 41, 41);
+  noises.draw();
 
   title.draw();
 }
