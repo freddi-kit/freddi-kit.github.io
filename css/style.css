@@ -1,4 +1,4 @@
-body {
+gbody {
   background-color: black;
   margin: 0;
   padding: 0;
@@ -8,7 +8,7 @@ body {
   display: inline-block;
 }
 
-@media screen and (min-width: 401px) {
+@media only screen and (min-device-width: 481px) {
   #toppage_canvas {
     float: left;
   }
@@ -19,13 +19,13 @@ body {
   color: white;
 }
 
-@media screen and (max-width: 400px) {
+@media only screen and (max-device-width: 480px) {
   .menu_block {
     width: 100%;
   }
 }
 
-@media screen and (min-width: 401px) {
+@media only screen and (min-device-width: 481px) {
   .menu_block {
     height: 100vh;
     width: 50%;

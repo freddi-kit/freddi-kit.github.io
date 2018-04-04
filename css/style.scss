@@ -1,4 +1,4 @@
-body {
+gbody {
   background-color: black;
   margin: 0;
   padding: 0;
@@ -6,8 +6,8 @@ body {
 
 
 $check-sizes:(
-  'small':'screen and (max-width:400px)',
-  'large':'screen and (min-width:401px)',
+  'small':'only screen and (max-device-width :480px)',
+  'large':'only screen and (min-device-width :481px)',
 ) !default;
 
 
