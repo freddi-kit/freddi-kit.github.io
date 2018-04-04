@@ -6,8 +6,8 @@ body {
 
 
 $check-sizes:(
-  'small':'only screen and (max-device-width :480px)',
-  'large':'only screen and (min-device-width :481px)',
+  'small':'screen and (max-width :480px)',
+  'large':'screen and (min-width :481px)',
 ) !default;
 
 
@@ -32,11 +32,11 @@ $check-sizes:(
   color:white;
 
   @include responsible_if(){
-    width:100%;
+    width:100vw;
   }
   @include responsible_if(large){
     height:100vh;
-    width:50%;
+    width:50vw;
   }
   .sns_menu{
     // 中央揃え用
@@ -48,7 +48,9 @@ $check-sizes:(
     height:100%;
     min-height:100px;
     font-size: 15px;
+
     .sns_icons_menu{
+      width:100%;
       display: inline-block;
       text-align:center;
       width:inherit;
