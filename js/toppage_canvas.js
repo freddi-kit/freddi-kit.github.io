@@ -66,11 +66,10 @@ var noises; //ノイズ
 // リサイズとかがおこった時の関数
 function setupWindow() {
   var winSetWidth, winSetHeight;
-  winSetWidth = (windowWidth > 400) ? windowWidth / 2 : windowWidth;
+  winSetWidth = (windowWidth / 2 > 200) ? windowWidth / 2 : windowWidth;
 
-  winSetHeight = (windowWidth > 400)
-                     ? windowHeight
-                     : ((windowHeight / 2 > 200) ? windowHeight / 2 : 200);
+  winSetHeight =
+      max((windowWidth / 2 > 200) ? windowHeight : windowHeight / 2, 500);
 
   resizeCanvas(winSetWidth, winSetHeight);
 }
