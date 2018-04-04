@@ -6,8 +6,8 @@ body {
 
 
 $check-sizes:(
-  'small':'screen and (max-width:400px)',
-  'large':'screen and (min-width:400px)',
+  'small':'screen and (max-width:200px)',
+  'large':'screen and (min-width:200px)',
 ) !default;
 
 

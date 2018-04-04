@@ -8,7 +8,7 @@ body {
   display: inline-block;
 }
 
-@media screen and (min-width: 400px) {
+@media screen and (min-width: 200px) {
   #toppage_canvas {
     float: left;
   }
@@ -19,13 +19,13 @@ body {
   color: white;
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 200px) {
   .menu_block {
     width: 100%;
   }
 }
 
-@media screen and (min-width: 400px) {
+@media screen and (min-width: 200px) {
   .menu_block {
     height: 100vh;
     width: 50%;
