@@ -1,7 +1,14 @@
-body {
+html,body {
   background-color: black;
   margin: 0;
   padding: 0;
+}
+
+#toppage_canvas{
+  canvas{
+    margin: 0;
+    padding: 0;
+  }
 }
 
 
@@ -33,12 +40,10 @@ $check-sizes:(
 
 
   @include responsible_if(large){
-    background-color:rgb(205, 0, 54);
     height:100vh;
     width:50vw;
   }
   @include responsible_if(){
-    background-color:rgb(205, 151, 54);
     width:100vw;
   }
   .sns_menu{
@@ -58,7 +63,13 @@ $check-sizes:(
       text-align:center;
       width:inherit;
       .fab{
-        margin:10%;
+        margin:7.5%;
+      }
+      @include responsible_if(large){
+        font-size:20px;
+      }
+      @include responsible_if(){
+        font-size:5vw;
       }
     }
     a{
@@ -66,6 +77,10 @@ $check-sizes:(
     }
     a:visited{
       color:white;
+    }
+
+    a:hover{
+      color:rgb(103, 103, 103);
     }
 
   }

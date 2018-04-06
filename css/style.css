@@ -1,5 +1,10 @@
-body {
+html, body {
   background-color: black;
+  margin: 0;
+  padding: 0;
+}
+
+#toppage_canvas canvas {
   margin: 0;
   padding: 0;
 }
@@ -51,7 +56,19 @@ body {
 }
 
 .menu_block .sns_menu .sns_icons_menu .fab {
-  margin: 10%;
+  margin: 7.5%;
+}
+
+@media only screen and (min-width: 641px) {
+  .menu_block .sns_menu .sns_icons_menu {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .menu_block .sns_menu .sns_icons_menu {
+    font-size: 5vw;
+  }
 }
 
 .menu_block .sns_menu a {
@@ -60,4 +77,8 @@ body {
 
 .menu_block .sns_menu a:visited {
   color: white;
+}
+
+.menu_block .sns_menu a:hover {
+  color: #676767;
 }
