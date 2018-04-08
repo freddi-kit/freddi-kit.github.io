@@ -2,10 +2,13 @@ html,body {
   background-color: black;
   margin: 0;
   padding: 0;
+  color:white;
+
 }
 
 .game_screen{
-  height:100vh;
+  height:60vh;
+  text-align:center;
   #toppage_canvas{
     // 中央揃え用
     display:flex;
