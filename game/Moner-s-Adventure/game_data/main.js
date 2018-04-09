@@ -44,7 +44,8 @@ function title() {
     }
   }
 
-  if (mouseIsPressed) {
+  if (mouseIsPressed && mouseX <= width && mouseX >= 0 && mouseY <= height &&
+      mouseY >= 0) {
     move = 0;
     score = 0;
     moner = new ObjectMoner(moner_walk_images);
