@@ -1,1 +1,1 @@
-html,body{background-color:black;margin:0;padding:0;color:white}.game_screen{height:60vh;text-align:center}.game_screen #toppage_canvas{display:flex;flex-direction:column;justify-content:center;align-items:center;width:100%;height:100%}
+html,body{background-color:black;margin:0;padding:0;color:white}a{color:white;text-decoration:none}a:visited{color:white}a:hover{color:#676767}.game_screen{height:60vh;text-align:center}.game_screen #toppage_canvas{display:flex;flex-direction:column;justify-content:center;align-items:center;width:100%;height:100%}

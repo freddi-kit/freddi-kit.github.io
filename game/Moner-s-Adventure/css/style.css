@@ -5,6 +5,19 @@ html, body {
   color: white;
 }
 
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:visited {
+  color: white;
+}
+
+a:hover {
+  color: #676767;
+}
+
 .game_screen {
   height: 60vh;
   text-align: center;
