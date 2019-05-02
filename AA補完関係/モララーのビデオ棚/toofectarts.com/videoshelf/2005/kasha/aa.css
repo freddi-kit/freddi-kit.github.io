@@ -1,0 +1,16 @@
+*{scrollbar-base-color:#F8F8FF;
+scrollbar-arrow-color:teal;
+scrollbar-3dlight-color:#F8F8FF;
+scrollbar-highlight-color:teal;
+scrollbar-shadow-color:#F8F8FF;
+scrollbar-darkshadow-color:teal;
+scrollbar-face-color:#F8F8FF;
+scrollbar-track-color:#F8F8FF;}
+body{background-color:#F8F8FF;
+padding:20px 0;margin-left:20px;}
+a:hover{color:#9370DB;}
+dd{margin-left:50px;}
+.nav{margin-top:50px;text-align:right;
+font-size:14px;color:#696969;}
+.nav a{text-decoration:none;}
+.Ati{font-size:14pt;color:red;}
